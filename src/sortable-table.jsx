@@ -1,16 +1,24 @@
+/** @jsx React.DOM */
+
+'use strict'
+
 var React = require("react");
 
+var SortableTableHeader = require("./sortable-table-header");
+var SortableTableBody = require("./sortable-table-body");
 
 var SortableTable = React.createClass({
     getInitialState: function () {
-        var sortings = this.getDefaultSorting();
+        var sortings = this.getDefaultSortings();
+        var sortedData = this.sortData(this.props.data, sortings);
+        
         return {
-            data: this.props.data,
-            sortings: sortings
+            sortings: sortings,
+            data: sortedData
         };
     },
 
-    getDefaultSorting: function () {
+    getDefaultSortings: function () {
         return this.props.columns.map(function (column) {
             var sorting = "both";
             if (column.defaultSorting) {
@@ -22,18 +30,64 @@ var SortableTable = React.createClass({
                     sorting = "asc";
                 }
             }
-
             return sorting;
+        });
+    },
+
+    sortData: function (data, sortings) {
+        var sortedData = this.props.data;
+        for (var i in sortings) {
+            var sorting = sortings[i];
+            var key = this.props.columns[i].key;
+            switch (sorting) {
+                case "desc":
+                    sortedData = this.descSortData(sortedData, key);
+                    break;
+                case "asc":
+                    sortedData = this.ascSortData(sortedData, key);
+                    break;
+            }
+        }
+        return sortedData;
+    },
+
+    ascSortData: function (data, key) {
+        return this.sortDataByKey(data, key, function (a, b) {
+            if ( a >= b ) {
+                return 1;
+            } else if ( a < b) {
+                return -1;
+            }
+        });
+    },
+
+    descSortData: function (data, key) {
+        return this.sortDataByKey(data, key, function (a, b) {
+            if ( a <= b ) {
+                return 1;
+            } else if ( a > b) {
+                return -1;
+            }
+        });
+    },
+    
+    sortDataByKey: function (data, key, fn) {
+        var clone = Array.apply(null, data);
+        return clone.sort(function (a, b) {
+            return fn(a[key], b[key]);
         });
     },
     
     onStateChange: function (index) {
+        var sortings = this.state.sortings.map(function (sorting, i) {
+            if (i == index)
+                sorting = this.nextSortingState(sorting);
+            return sorting;
+        }.bind(this));
+        var sortedData = this.sortData(this.props.data, sortings);
         this.setState({
-            sortings: this.state.sortings.map(function (sorting, i) {
-                if (i == index)
-                    sorting = this.nextSortingState(sorting);
-                return sorting;
-            }.bind(this))
+            sortings: sortings,
+            data: sortedData
         });
     },
     
@@ -56,94 +110,18 @@ var SortableTable = React.createClass({
     render: function () {
         return (
             <table className="table">
-                <SortableTableHeaderRow columns={this.props.columns} sortings={this.state.sortings} onStateChange={this.onStateChange}/>
+                <SortableTableHeader columns={this.props.columns} sortings={this.state.sortings} onStateChange={this.onStateChange}/>
+                <SortableTableBody columns={this.props.columns} data={this.state.data} sortings={this.state.sortings} />
             </table>
         );
     }
 });
 
-var SortableTableHeaderRow = React.createClass({
-    onClick: function (index) {
-        this.props.onStateChange(index);
-    },
-
-    render: function () {
-        var headers = this.props.columns.map(function (column, index) {
-            var sorting = this.props.sortings[index];
-            return (
-                <SortableTableHeader key={index} index={index} header={column.header} sorting={sorting} onClick={this.onClick} />
-            );
-        }.bind(this));
-        
-        return (
-            <tr>
-                {headers}
-            </tr>
-        );
-    }
-});
-
-var SortableTableHeader = React.createClass({
-    onClick: function (e) {
-        this.props.onClick(this.props.index);
-    },
-
-    render: function () {
-        var sortIcon = <SortIconBoth />;
-        if (this.props.sorting == "desc") {
-            sortIcon = <SortIconDesc />;
-        } else if (this.props.sorting == "asc") {
-            sortIcon = <SortIconAsc />;
-        }
-
-        return (
-            <th style={this.props.style} onClick={this.onClick}>
-                {this.props.header}
-                {sortIcon}
-            </th>
-        );
-    }
-});
-
-
-var SortIconBoth = React.createClass({
-    render: function () {
-        return (
-            <FaIcon icon="fa-sort" />
-        );
-    }
-});
-
-var SortIconAsc = React.createClass({
-    render: function () {
-        return (
-            <FaIcon icon="fa-sort-asc" />
-        );
-    }
-});
-
-var SortIconDesc = React.createClass({
-    render: function () {
-        return (
-            <FaIcon icon="fa-sort-desc" />
-        );
-    }
-});
-
-var FaIcon = React.createClass({
-    render: function () {
-        var className = "fa fa-lg ";
-        className += this.props.icon;
-        return (
-            <i className={className} />
-        );
-    }
-});
 
 var data = [
+    { id: 3, name: "Satoshi", class: "B" },
     { id: 1, name: "Taro", class: "A" },
     { id: 2, name: "Ken", class: "A" },
-    { id: 3, name: "Satoshi", class: "B" },
     { id: 4, name: "Masaru", class: "C" }
 ];
 

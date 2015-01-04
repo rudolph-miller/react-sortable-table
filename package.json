@@ -8,6 +8,9 @@
     "sortable"
   ],
   "description": "sortable table component in React.js",
+  "scripts": {
+    "install": "webpack"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/Rudolph-Miller/react-sortable-table"
