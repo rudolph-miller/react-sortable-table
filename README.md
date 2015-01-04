@@ -45,5 +45,5 @@ React.render(<SortableTable data={data} columns={columns} style={style} iconStyl
 ```
 
 ### PropTypes
-data: React.PropTypes.array.isRequired
-columns: React.PropTypes.array.isRequired
+- data: React.PropTypes.array.isRequired
+- columns: React.PropTypes.array.isRequired
