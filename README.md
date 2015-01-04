@@ -41,7 +41,7 @@ var iconStyle = {
     paddingRIght: "5px"
 };
 
-React.render(<SortableTable style={style} data={data} columns={columns} iconStyle={iconStyle} />, document.body);
+React.render(<SortableTable data={data} columns={columns} style={style} iconStyle={iconStyle} />, document.body);
 ```
 
 ### PropTypes
