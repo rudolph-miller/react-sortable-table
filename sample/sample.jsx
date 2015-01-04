@@ -3,7 +3,7 @@
 'use strict'
 var React = require("react");
 
-var SortableTable = require("../src/sortable-table");
+var SortableTable = require("../../react-sortable-table");
 
 var data = [
     { id: 3, name: "Satoshi", class: "B" },

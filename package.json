@@ -8,9 +8,9 @@
     "sortable"
   ],
   "description": "sortable table component in React.js",
-  "main": "src/sortable-table.jsx",
+  "main": "index.js",
   "scripts": {
-    "install": "webpack"
+    "install": "jsx --extension jsx --no-cache-dir src/ js/"
   },
   "repository": {
     "type": "git",
