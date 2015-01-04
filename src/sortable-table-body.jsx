@@ -5,6 +5,12 @@
 var React = require("react");
 
 var SortableTableBody = React.createClass({
+    propTypes: {
+        data: React.PropTypes.array.isRequired,
+        columns: React.PropTypes.array.isRequired,
+        sortings: React.PropTypes.array.isRequired
+    },
+    
     render: function () {
         var bodies = this.props.data.map(function (item, index) {
             return (

@@ -8,6 +8,13 @@ var SortableTableHeader = require("./sortable-table-header");
 var SortableTableBody = require("./sortable-table-body");
 
 var SortableTable = React.createClass({
+    propTypes: {
+        data: React.PropTypes.array.isRequired,
+        columns: React.PropTypes.array.isRequired,
+        style: React.PropTypes.object,
+        iconStyle: React.PropTypes.object
+    },
+    
     getInitialState: function () {
         var sortings = this.getDefaultSortings();
         var sortedData = this.sortData(this.props.data, sortings);

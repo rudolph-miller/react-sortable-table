@@ -10,6 +10,13 @@ var SortIconDesc = icons.SortIconDesc;
 var SortIconAsc = icons.SortIconAsc;
 
 var SortableTableHeader = React.createClass({
+    propTypes: {
+        columns: React.PropTypes.array.isRequired,
+        sortings: React.PropTypes.array.isRequired,
+        onStateChange: React.PropTypes.func,
+        iconStyle: React.PropTypes.object
+    },
+        
     onClick: function (index) {
         this.props.onStateChange(index);
     },
