@@ -6,3 +6,5 @@
   - headerStyle: Object
   - dataStyle: Object
   - defaultSorting: desc / asc
+
+- compile: webpack
