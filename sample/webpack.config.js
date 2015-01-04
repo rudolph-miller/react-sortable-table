@@ -1,9 +1,9 @@
 var webpack = require('webpack');
 
 module.exports = {
-    entry: './src/sortable-table.jsx',
+    entry: './sample.jsx',
     output: {
-        filename: 'dist/react-sortable-table.js'
+        filename: 'bundle.js'
     },
     module: {
         loaders: [
@@ -17,7 +17,7 @@ module.exports = {
         extensions: ['', '.js', '.jsx']
     },
     resolveLoader: {
-        modulesDirectories: [ "node_modules" ]
+        modulesDirectories: [ "../node_modules" ]
     },
     devtool: "#inline-source-map"
 }
