@@ -13,9 +13,13 @@ var data = [
 ];
 
 var columns = [
-    { header: "ID", key: "id", defaultSorting: "ASC", headerStyle: {fontSize: "20px"}, itemStyle: {fontSize: "15px"} },
+    { header: "ID", key: "id", defaultSorting: "ASC", headerStyle: {fontSize: "20px", backgroundColor: "red" }, dataStyle: {fontSize: "15px"} },
     { header: "NAME", key: "name", headerStyle: {fontSize: "20px"} },
     { header: "CLASS", key: "class", headerStyle: {fontSize: "20px"} }
 ];
 
-React.render(<SortableTable data={data} columns={columns} />, document.body);
+var style = {
+    backgroundColor: "#ccc"
+};
+
+React.render(<SortableTable style={style} data={data} columns={columns} />, document.body);

@@ -18,7 +18,7 @@ var SortableTableHeader = React.createClass({
         var headers = this.props.columns.map(function (column, index) {
             var sorting = this.props.sortings[index];
             return (
-                <SortableTableHeaderItem key={index} index={index} header={column.header} sorting={sorting} onClick={this.onClick} />
+                <SortableTableHeaderItem key={index} index={index} header={column.header} sorting={sorting} onClick={this.onClick} style={column.headerStyle} />
             );
         }.bind(this));
         
