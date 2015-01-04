@@ -18,7 +18,7 @@ var SortableTableHeader = React.createClass({
         var headers = this.props.columns.map(function (column, index) {
             var sorting = this.props.sortings[index];
             return (
-                <SortableTableHeaderItem key={index} index={index} header={column.header} sorting={sorting} onClick={this.onClick} style={column.headerStyle} />
+                <SortableTableHeaderItem key={index} index={index} header={column.header} sorting={sorting} onClick={this.onClick} style={column.headerStyle} iconStyle={this.props.iconStyle} />
             );
         }.bind(this));
         
@@ -38,11 +38,11 @@ var SortableTableHeaderItem = React.createClass({
     },
 
     render: function () {
-        var sortIcon = <SortIconBoth />;
+        var sortIcon = <SortIconBoth style={this.props.iconStyle} />;
         if (this.props.sorting == "desc") {
-            sortIcon = <SortIconDesc />;
+            sortIcon = <SortIconDesc style={this.props.iconStyle} />;
         } else if (this.props.sorting == "asc") {
-            sortIcon = <SortIconAsc />;
+            sortIcon = <SortIconAsc style={this.props.iconStyle} />;
         }
 
         return (

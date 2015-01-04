@@ -13,13 +13,19 @@ var data = [
 ];
 
 var columns = [
-    { header: "ID", key: "id", defaultSorting: "ASC", headerStyle: {fontSize: "20px", backgroundColor: "red" }, dataStyle: {fontSize: "15px"} },
-    { header: "NAME", key: "name", headerStyle: {fontSize: "20px"} },
-    { header: "CLASS", key: "class", headerStyle: {fontSize: "20px"} }
+    { header: "ID", key: "id", defaultSorting: "ASC", headerStyle: {fontSize: "15px", backgroundColor: "#FFDAB9" }, dataStyle: {fontSize: "15px", backgroundColor: "#FFDAB9"} },
+    { header: "NAME", key: "name", headerStyle: {fontSize: "15px"} },
+    { header: "CLASS", key: "class", headerStyle: {fontSize: "15px"} }
 ];
 
 var style = {
-    backgroundColor: "#ccc"
+    backgroundColor: "#eee"
 };
 
-React.render(<SortableTable style={style} data={data} columns={columns} />, document.body);
+var iconStyle = {
+    color: "#aaa",
+    paddingLeft: "5px",
+    paddingRIght: "5px"
+};
+
+React.render(<SortableTable style={style} data={data} columns={columns} iconStyle={iconStyle} />, document.body);

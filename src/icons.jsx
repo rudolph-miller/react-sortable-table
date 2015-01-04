@@ -6,8 +6,9 @@ var React = require("react");
 
 var SortIconBoth = React.createClass({
     render: function () {
+        console.log(this.props.style);
         return (
-            <FaIcon icon="fa-sort" />
+            <FaIcon icon="fa-sort" style={this.props.style} />
         );
     }
 });
@@ -15,7 +16,7 @@ var SortIconBoth = React.createClass({
 var SortIconAsc = React.createClass({
     render: function () {
         return (
-            <FaIcon icon="fa-sort-asc" />
+            <FaIcon icon="fa-sort-asc" style={this.props.style} />
         );
     }
 });
@@ -23,7 +24,7 @@ var SortIconAsc = React.createClass({
 var SortIconDesc = React.createClass({
     render: function () {
         return (
-            <FaIcon icon="fa-sort-desc" />
+            <FaIcon icon="fa-sort-desc" style={this.props.style} />
         );
     }
 });
@@ -33,7 +34,7 @@ var FaIcon = React.createClass({
         var className = "fa fa-lg ";
         className += this.props.icon;
         return (
-            <i className={className} />
+            <i className={className} style={this.props.style} />
         );
     }
 });
