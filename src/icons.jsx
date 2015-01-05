@@ -6,7 +6,6 @@ var React = require("react");
 
 var SortIconBoth = React.createClass({
     render: function () {
-        console.log(this.props.style);
         return (
             <FaIcon icon="fa-sort" style={this.props.style} />
         );
