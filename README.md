@@ -7,7 +7,9 @@
 
 ### USING
 ```
-@sample.jsx
+/** @jsx React.DOM */
+
+'use strict'
 
 var React = require("react");
 
