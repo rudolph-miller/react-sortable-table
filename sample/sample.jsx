@@ -14,7 +14,7 @@ var data = [
 
 var columns = [
     { header: "ID", key: "id", defaultSorting: "ASC", headerStyle: {fontSize: "15px", backgroundColor: "#FFDAB9" }, dataStyle: {fontSize: "15px", backgroundColor: "#FFDAB9"} },
-    { header: "NAME", key: "name", headerStyle: {fontSize: "15px"} },
+    { header: "NAME", key: "name", headerStyle: {fontSize: "15px"}, sortable: false },
     { header: "CLASS", key: "class", headerStyle: {fontSize: "15px"} }
 ];
 
