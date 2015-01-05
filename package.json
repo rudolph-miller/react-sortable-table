@@ -10,7 +10,10 @@
   "description": "sortable table component in React.js",
   "main": "index.js",
   "scripts": {
-    "install": "jsx --extension jsx --no-cache-dir src/ js/"
+    "install": "jsx --extension jsx --no-cache-dir src/ js/",
+    "prepublish": "jsx --extension jsx --no-cache-dir src/ js/",
+    "watch": "jsx --extension jsx --no-cache-dir --watch src/ js/",
+    "build": "jsx --extension jsx --no-cache-dir src/ js/"
   },
   "repository": {
     "type": "git",
