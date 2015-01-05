@@ -33,7 +33,7 @@ var FaIcon = React.createClass({
         var className = "fa fa-lg ";
         className += this.props.icon;
         return (
-            <i className={className} style={this.props.style} />
+            <i className={className} style={this.props.style} align="right" />
         );
     }
 });

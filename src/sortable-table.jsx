@@ -17,11 +17,9 @@ var SortableTable = React.createClass({
     
     getInitialState: function () {
         var sortings = this.getDefaultSortings();
-        var sortedData = this.sortData(this.props.data, sortings);
         
         return {
-            sortings: sortings,
-            data: sortedData
+            sortings: sortings
         };
     },
 
@@ -115,10 +113,12 @@ var SortableTable = React.createClass({
     },
     
     render: function () {
+        var sortedData = this.sortData(this.props.data, this.state.sortings);
+
         return (
             <table className="table" style={this.props.style}>
                 <SortableTableHeader columns={this.props.columns} sortings={this.state.sortings} onStateChange={this.onStateChange} iconStyle={this.props.iconStyle} />
-                <SortableTableBody columns={this.props.columns} data={this.state.data} sortings={this.state.sortings} />
+                <SortableTableBody columns={this.props.columns} data={sortedData} sortings={this.state.sortings} />
             </table>
         );
     }
