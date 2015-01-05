@@ -1,9 +1,10 @@
 {
   "author": "Rudolph-Miller",
   "name": "react-sortable-table",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "keywords": [
     "react",
+    "react-component",
     "table",
     "sortable"
   ],
