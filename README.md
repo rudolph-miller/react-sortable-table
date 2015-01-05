@@ -47,3 +47,11 @@ React.render(<SortableTable data={data} columns={columns} style={style} iconStyl
 ### PropTypes
 - data: React.PropTypes.array.isRequired
 - columns: React.PropTypes.array.isRequired
+
+### Copyright
+
+Copyright (c) 2015 Rudolph-Miller (chopsticks.tk.ppfm@gmail.com)
+
+###License
+
+Licensed under the MIT License.
