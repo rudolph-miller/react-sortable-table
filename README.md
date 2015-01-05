@@ -2,6 +2,8 @@
 
 [![npm version](https://badge.fury.io/js/react-sortable-table.svg)](http://badge.fury.io/js/react-sortable-table)
 
+__This component is depends on [Font Awesome](http://fortawesome.github.io/Font-Awesome/)__  
+[LICENSE of Font Awesome](http://fortawesome.github.io/Font-Awesome/license/)
 ### INSTALL
 `npm install react-sortable-table`
 
