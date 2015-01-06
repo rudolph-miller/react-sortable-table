@@ -3,7 +3,7 @@
 [![npm version](https://badge.fury.io/js/react-sortable-table.svg)](http://badge.fury.io/js/react-sortable-table)
 
 __This component is depends on [Font Awesome](http://fortawesome.github.io/Font-Awesome/)__  
-Add `<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">` to your HTML  
+Please activate Font Awosome. [Get started with Font Awosome](http://fortawesome.github.io/Font-Awesome/get-started/)    
 [LICENSE of Font Awesome](http://fortawesome.github.io/Font-Awesome/license/)
 ### INSTALL
 `npm install react-sortable-table`
