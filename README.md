@@ -13,6 +13,9 @@ Please activate Font Awosome. [Get started with Font Awosome](http://fortawesome
 
 ### SAMPLE
 [Rudolph-Miller.github.io](http://rudolph-miller.github.io/react-sortable-table/sample.html)
+- ID: default sorting
+- NAME: custom sorting function that sort names by the family name
+- CLASS: unsortable
 
 ### INSTALL
 `npm install react-sortable-table`
