@@ -43,13 +43,22 @@ var SortableTable = React.createClass({
         var sortedData = this.props.data;
         for (var i in sortings) {
             var sorting = sortings[i];
+            var column = this.props.columns[i];
             var key = this.props.columns[i].key;
             switch (sorting) {
                 case "desc":
-                    sortedData = this.descSortData(sortedData, key);
+                    if ( column.descSortFunction && typeof(column.descSortFunction) == "function" ) {
+                        sortedData = column.descSortFunction(sortedData, key);
+                    } else {
+                        sortedData = this.descSortData(sortedData, key);
+                    }
                     break;
                 case "asc":
-                    sortedData = this.ascSortData(sortedData, key);
+                    if ( column.ascSortFunction && typeof(column.ascSortFunction) == "function" ) {
+                        sortedData = column.ascSortFunction(sortedData, key);
+                    } else {
+                        sortedData = this.ascSortData(sortedData, key);
+                    }
                     break;
             }
         }
@@ -78,6 +87,7 @@ var SortableTable = React.createClass({
     
     sortDataByKey: function (data, key, fn) {
         var clone = Array.apply(null, data);
+
         return clone.sort(function (a, b) {
             return fn(a[key], b[key]);
         });
@@ -87,12 +97,12 @@ var SortableTable = React.createClass({
         var sortings = this.state.sortings.map(function (sorting, i) {
             if (i == index)
                 sorting = this.nextSortingState(sorting);
+
             return sorting;
         }.bind(this));
-        var sortedData = this.sortData(this.props.data, sortings);
+
         this.setState({
-            sortings: sortings,
-            data: sortedData
+            sortings: sortings
         });
     },
     

@@ -18,6 +18,5 @@ module.exports = {
     },
     resolveLoader: {
         modulesDirectories: [ "../node_modules" ]
-    },
-    devtool: "#inline-source-map"
+    }
 }
