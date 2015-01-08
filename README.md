@@ -11,6 +11,9 @@ __This component is depends on [Font Awesome](http://fortawesome.github.io/Font-
 Please activate Font Awosome. [Get started with Font Awosome](http://fortawesome.github.io/Font-Awesome/get-started/)    
 [LICENSE of Font Awesome](http://fortawesome.github.io/Font-Awesome/license/)
 
+### SAMPLE
+[Rudolph-Miller.github.io](http://rudolph-miller.github.io/react-sortable-table/sample.html)
+
 ### INSTALL
 `npm install react-sortable-table`
 
