@@ -94,11 +94,11 @@ var SortableTable = React.createClass({
     },
     
     parseIntable: function (value) {
-        return ( /^\d+$/.test(value) || /^\d+$/.test(value.replace(/,/g, "")) ) ? true : false
+        return ( typeof(value) === "string" && ( /^\d+$/.test(value) || /^\d+$/.test(value.replace(/,/g, "")) ) ) ? true : false;
     },
     
     parseIfInt: function (value) {
-        return parseInt(value) || parseInt(value.replace(/,/g, ""));
+        return parseInt(value.replace(/,/g, ""));
     },
     
     sortDataByKey: function (data, key, fn) {
