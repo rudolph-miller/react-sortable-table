@@ -67,30 +67,38 @@ var SortableTable = React.createClass({
 
     ascSortData: function (data, key) {
         return this.sortDataByKey(data, key, function (a, b) {
-            if ( parseInt(a) && parseInt(b) ) {
-                a = parseInt(a);
-                b = parseInt(b);
+            if ( this.parseIntable(a) && this.parseIntable(b) ) {
+                a = this.parseIfInt(a);
+                b = this.parseIfInt(b);
             }
             if ( a >= b ) {
                 return 1;
             } else if ( a < b) {
                 return -1;
             }
-        });
+        }.bind(this));
     },
 
     descSortData: function (data, key) {
         return this.sortDataByKey(data, key, function (a, b) {
-            if ( parseInt(a) && parseInt(b) ) {
-                a = parseInt(a);
-                b = parseInt(b);
+            if ( this.parseIntable(a) && this.parseIntable(b) ) {
+                a = this.parseIfInt(a);
+                b = this.parseIfInt(b);
             }
             if ( a <= b ) {
                 return 1;
             } else if ( a > b) {
                 return -1;
             }
-        });
+        }.bind(this));
+    },
+    
+    parseIntable: function (value) {
+        return ( /^\d+$/.test(value) || /^\d+$/.test(value.replace(/,/g, "")) ) ? true : false
+    },
+    
+    parseIfInt: function (value) {
+        return parseInt(value) || parseInt(value.replace(/,/g, ""));
     },
     
     sortDataByKey: function (data, key, fn) {
