@@ -66,10 +66,12 @@ var SortableTable = React.createClass({
     },
 
     ascSortData: function (data, key) {
+        console.log(this.parseFloatable("12.1%"));
+        console.log(this.parseIfFloat("12.1%"));
         return this.sortDataByKey(data, key, function (a, b) {
-            if ( this.parseIntable(a) && this.parseIntable(b) ) {
-                a = this.parseIfInt(a);
-                b = this.parseIfInt(b);
+            if ( this.parseFloatable(a) && this.parseFloatable(b) ) {
+                a = this.parseIfFloat(a);
+                b = this.parseIfFloat(b);
             }
             if ( a >= b ) {
                 return 1;
@@ -81,9 +83,9 @@ var SortableTable = React.createClass({
 
     descSortData: function (data, key) {
         return this.sortDataByKey(data, key, function (a, b) {
-            if ( this.parseIntable(a) && this.parseIntable(b) ) {
-                a = this.parseIfInt(a);
-                b = this.parseIfInt(b);
+            if ( this.parseFloatable(a) && this.parseFloatable(b) ) {
+                a = this.parseIfFloat(a);
+                b = this.parseIfFloat(b);
             }
             if ( a <= b ) {
                 return 1;
@@ -93,12 +95,12 @@ var SortableTable = React.createClass({
         }.bind(this));
     },
     
-    parseIntable: function (value) {
-        return ( typeof(value) === "string" && ( /^\d+$/.test(value) || /^\d+$/.test(value.replace(/,/g, "")) ) ) ? true : false;
+    parseFloatable: function (value) {
+        return ( typeof(value) === "string" && ( /^\d+$/.test(value) || /^\d+$/.test(value.replace(/[,.%$]/g, "")) ) ) ? true : false;
     },
     
-    parseIfInt: function (value) {
-        return parseInt(value.replace(/,/g, ""));
+    parseIfFloat: function (value) {
+        return parseFloat(value.replace(/,/g, ""));
     },
     
     sortDataByKey: function (data, key, fn) {
