@@ -67,6 +67,10 @@ var SortableTable = React.createClass({
 
     ascSortData: function (data, key) {
         return this.sortDataByKey(data, key, function (a, b) {
+            if ( parseInt(a) && parseInt(b) ) {
+                a = parseInt(a);
+                b = parseInt(b);
+            }
             if ( a >= b ) {
                 return 1;
             } else if ( a < b) {
@@ -77,6 +81,10 @@ var SortableTable = React.createClass({
 
     descSortData: function (data, key) {
         return this.sortDataByKey(data, key, function (a, b) {
+            if ( parseInt(a) && parseInt(b) ) {
+                a = parseInt(a);
+                b = parseInt(b);
+            }
             if ( a <= b ) {
                 return 1;
             } else if ( a > b) {
