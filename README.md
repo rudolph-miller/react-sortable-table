@@ -21,7 +21,7 @@ Please activate Font Awosome. [Get started with Font Awosome](http://fortawesome
 `npm install react-sortable-table`
 
 ### USING
-```
+```JavaScript
 /** @jsx React.DOM */
 
 'use strict'
