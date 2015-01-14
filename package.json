@@ -1,7 +1,7 @@
 {
   "author": "Rudolph-Miller",
   "name": "react-sortable-table",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "keywords": [
     "react",
     "react-component",
@@ -21,8 +21,8 @@
     "url": "git://github.com/Rudolph-Miller/react-sortable-table"
   },
   "dependencies": {
-    "jsx-loader": "^0.12.2",
-    "react": "^0.12.2"
+    "jsx-loader": "0.12.2",
+    "react": "0.12.2"
   },
   "license": "MIT"
 }
