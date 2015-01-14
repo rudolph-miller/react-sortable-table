@@ -66,8 +66,6 @@ var SortableTable = React.createClass({
     },
 
     ascSortData: function (data, key) {
-        console.log(this.parseFloatable("12.1%"));
-        console.log(this.parseIfFloat("12.1%"));
         return this.sortDataByKey(data, key, function (a, b) {
             if ( this.parseFloatable(a) && this.parseFloatable(b) ) {
                 a = this.parseIfFloat(a);
