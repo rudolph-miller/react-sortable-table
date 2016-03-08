@@ -1,8 +1,11 @@
-## Sortable Table in React.js
+# Sortable Table in React.js
 
 [![npm version](https://badge.fury.io/js/react-sortable-table.svg)](http://badge.fury.io/js/react-sortable-table)
 
-### FREATURE
+<font color='red'>※It's not installable. I'll fix it. See https://github.com/Rudolph-Miller/react-sortable-table/issues/4 </font>
+
+# Feature
+
 - Simple API
 - Customizable style
 - Customizable sorting functions
@@ -11,16 +14,21 @@ __This component is depends on [Font Awesome](http://fortawesome.github.io/Font-
 Please activate Font Awosome. [Get started with Font Awosome](http://fortawesome.github.io/Font-Awesome/get-started/)    
 [LICENSE of Font Awesome](http://fortawesome.github.io/Font-Awesome/license/)
 
-### SAMPLE
+# Example
+
 [Rudolph-Miller.github.io](http://rudolph-miller.github.io/react-sortable-table/sample.html)
 - ID: default sorting
 - NAME: custom sorting function that sort names by the family name
 - CLASS: unsortable
 
-### INSTALL
-`npm install react-sortable-table`
+# Install
 
-### USING
+```
+npm install react-sortable-table
+```
+
+# Usage
+
 ```JavaScript
 /** @jsx React.DOM */
 
@@ -99,14 +107,15 @@ var SortedTableSample = React.createClass({
 React.render(<SortedTableSample />, document.body);
 ```
 
-### PropTypes
+# PropTypes
+
 - data: React.PropTypes.array.isRequired
 - columns: React.PropTypes.array.isRequired
 
-### Copyright
+# Copyright
 
 Copyright (c) 2015 Rudolph-Miller (chopsticks.tk.ppfm@gmail.com)
 
-###License
+#License
 
 Licensed under the MIT License.
