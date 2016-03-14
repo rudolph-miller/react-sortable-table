@@ -11,18 +11,20 @@
   "description": "sortable table component in React.js",
   "main": "index.js",
   "scripts": {
-    "install": "node_modules/react-tools/bin/jsx --extension jsx --no-cache-dir src/ js/",
-    "watch": "node_modules/react-tools/bin/jsx --extension jsx --no-cache-dir --watch src/ js/",
-    "build": "node_modules/react-tools/bin/jsx --extension jsx --no-cache-dir src/ js/"
+    "prepublish": "node_modules/.bin/babel src --out-dir js",
+    "build": "node_modules/.bin/babel src --out-dir js"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/Rudolph-Miller/react-sortable-table"
   },
   "dependencies": {
-    "jsx-loader": ">0.12.2",
-    "react": ">0.12.2",
-    "react-tools": ">0.12.2"
+    "react": "^0.14.7"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.6.5",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0"
+  }
 }
