@@ -16,7 +16,7 @@ Please activate Font Awosome. [Get started with Font Awosome](http://fortawesome
 
 # Example
 
-[Rudolph-Miller.github.io](http://rudolph-miller.github.io/react-sortable-table/sample.html)
+https://gh-pages.rudolph-miller.com/react-sortable-table/
 - ID: default sorting
 - NAME: custom sorting function that sort names by the family name
 - CLASS: unsortable
