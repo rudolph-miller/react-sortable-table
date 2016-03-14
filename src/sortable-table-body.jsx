@@ -1,42 +1,43 @@
-var React = require("react");
+import { Component, PropTypes } from 'react';
 
-var SortableTableBody = React.createClass({
-    propTypes: {
-        data: React.PropTypes.array.isRequired,
-        columns: React.PropTypes.array.isRequired,
-        sortings: React.PropTypes.array.isRequired
-    },
-    
-    render: function () {
-        var bodies = this.props.data.map(function (item, index) {
-            return (
-                <SortableTableRow key={index} data={item} columns={this.props.columns} />
-            );
-        }.bind(this));
-        
-        return (
-            <tbody>
-                {bodies}
-            </tbody>
-        );
-    }
-});
+class SortableTableRow extends Component {
+  render() {
+    var tds = this.props.columns.map(function (item, index) {
+      var value = this.props.data[item.key];
+      return (
+        <td key={index} style={item.dataStyle}>{value}</td>
+      );
+    }.bind(this));
 
-var SortableTableRow = React.createClass({
-    render: function () {
-        var tds = this.props.columns.map(function (item, index) {
-            var value = this.props.data[item.key];
-            return (
-                <td key={index} style={item.dataStyle}>{value}</td>
-            );
-        }.bind(this));
-            
-        return (
-            <tr>
-                {tds}
-            </tr>
-        );
-    }
-});
+    return (
+      <tr>
+        {tds}
+      </tr>
+    );
+  }
+}
 
-module.exports = SortableTableBody;
+export default class SortableTableBody extends Component {
+  static propTypes = {
+    data: PropTypes.array.isRequired,
+    columns: PropTypes.array.isRequired,
+    sortings: PropTypes.array.isRequired
+  }
+
+  render() {
+    var bodies = this.props.data.map(((item, index) => {
+      return (
+        <SortableTableRow
+          key={index}
+          data={item}
+          columns={this.props.columns} />
+      );
+    }).bind(this));
+
+    return (
+      <tbody>
+        {bodies}
+      </tbody>
+    );
+  }
+}

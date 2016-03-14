@@ -1,39 +1,41 @@
-var React = require("react");
+import { Component, PropTypes } from 'react';
 
-var SortIconBoth = React.createClass({
-    render: function () {
-        return (
-            <FaIcon icon="fa-sort" style={this.props.style} />
-        );
-    }
-});
+class FaIcon extends Component {
+  static propTypes = {
+    icon: PropTypes.string.isRequired
+  }
 
-var SortIconAsc = React.createClass({
-    render: function () {
-        return (
-            <FaIcon icon="fa-sort-asc" style={this.props.style} />
-        );
-    }
-});
+  render() {
+    const className = `fa fa-lg ${this.props.icon}`
+    return (
+      <i
+        className={className}
+        style={this.props.style}
+        align="right" />
+    );
+  }
+}
 
-var SortIconDesc = React.createClass({
-    render: function () {
-        return (
-            <FaIcon icon="fa-sort-desc" style={this.props.style} />
-        );
-    }
-});
+export class SortIconBoth extends Component {
+  render() {
+    return (
+      <FaIcon icon="fa-sort" style={this.props.style} />
+    );
+  }
+}
 
-var FaIcon = React.createClass({
-    render: function () {
-        var className = "fa fa-lg ";
-        className += this.props.icon;
-        return (
-            <i className={className} style={this.props.style} align="right" />
-        );
-    }
-});
+export class SortIconAsc extends Component {
+  render() {
+    return (
+      <FaIcon icon="fa-sort-asc" style={this.props.style} />
+    );
+  }
+}
 
-exports.SortIconBoth = SortIconBoth;
-exports.SortIconDesc = SortIconDesc;
-exports.SortIconAsc = SortIconAsc;
+export class SortIconDesc extends Component {
+  render() {
+    return (
+      <FaIcon icon="fa-sort-desc" style={this.props.style} />
+    );
+  }
+}

@@ -37,7 +37,7 @@ function getFamilyName(name) {
 }
 
 const FamilyNameSorter = {
-  desc: (data, key) => {
+desc: (data, key) => {
     var result = data.sort(function (_a, _b) {
       const a = getFamilyName(_a[key]);
       const b = getFamilyName(_b[key]);
