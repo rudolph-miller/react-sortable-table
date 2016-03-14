@@ -2,8 +2,6 @@
 
 [![npm version](https://badge.fury.io/js/react-sortable-table.svg)](http://badge.fury.io/js/react-sortable-table)
 
-<font color='red'>※It's not installable. I'll fix it. See https://github.com/Rudolph-Miller/react-sortable-table/issues/4 </font>
-
 # Feature
 
 - Simple API
