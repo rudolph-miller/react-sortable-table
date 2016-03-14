@@ -1,0 +1,21 @@
+{
+  "name": "react-sortable-table-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rudolph-Miller",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-sortable-table": "file:.."
+  },
+  "devDependencies": {
+    "babel-core": "^6.7.2",
+    "babel-loader": "^6.2.4",
+    "webpack": "^1.12.14"
+  }
+}
