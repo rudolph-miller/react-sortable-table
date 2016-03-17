@@ -28,6 +28,7 @@ npm install react-sortable-table
 # Usage
 
 ```js
+window.React = require('react');
 import { render } from 'react-dom';
 import React, { Component, PropTypes } from 'react';
 import SortableTable from 'react-sortable-table';
