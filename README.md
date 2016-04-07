@@ -9,7 +9,7 @@
 - Customizable sorting functions
 
 __This component is depends on [Font Awesome](http://fortawesome.github.io/Font-Awesome/)__  
-Please activate Font Awosome. [Get started with Font Awosome](http://fortawesome.github.io/Font-Awesome/get-started/)    
+Please activate Font Awesome. [Get started with Font Awesome](http://fortawesome.github.io/Font-Awesome/get-started/)    
 [LICENSE of Font Awesome](http://fortawesome.github.io/Font-Awesome/license/)
 
 # Example
