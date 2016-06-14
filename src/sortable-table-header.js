@@ -5,7 +5,11 @@ import { SortIconBoth, SortIconDesc, SortIconAsc } from './icons';
 class SortableTableHeaderItem extends Component {
   static propTypes = {
     sortable: PropTypes.bool,
-    sorting: PropTypes.oneOf(['desc', 'asc', 'both'])
+    sorting: PropTypes.oneOf(['desc', 'asc', 'both']),
+    iconStyle: PropTypes.object,
+    iconDesc: PropTypes.node,
+    iconAsc: PropTypes.node,
+    iconBoth: PropTypes.node
   }
 
   static defaultProps = {
@@ -20,11 +24,23 @@ class SortableTableHeaderItem extends Component {
   render() {
     let sortIcon;
     if (this.props.sortable) {
-      sortIcon = <SortIconBoth style={this.props.iconStyle} />;
+      if (this.props.iconBoth) {
+        sortIcon = this.props.iconBoth;
+      } else {
+        sortIcon = <SortIconBoth style={this.props.iconStyle} />;
+      }
       if (this.props.sorting == "desc") {
-        sortIcon = <SortIconDesc style={this.props.iconStyle} />;
+        if (this.props.iconDesc) {
+          sortIcon = this.props.iconDesc;
+        } else {
+          sortIcon = <SortIconDesc style={this.props.iconStyle} />;
+        }
       } else if (this.props.sorting == "asc") {
-        sortIcon = <SortIconAsc style={this.props.iconStyle} />;
+        if (this.props.iconAsc) {
+          sortIcon = this.props.iconAsc;
+        } else {
+          sortIcon = <SortIconAsc style={this.props.iconStyle} />;
+        }
       }
     }
 
@@ -44,7 +60,10 @@ export default class SortableTableHeader extends Component {
     columns: PropTypes.array.isRequired,
     sortings: PropTypes.array.isRequired,
     onStateChange: PropTypes.func,
-    iconStyle: PropTypes.object
+    iconStyle: PropTypes.object,
+    iconDesc: PropTypes.node,
+    iconAsc: PropTypes.node,
+    iconBoth: PropTypes.node
   }
 
   onClick(index) {
@@ -63,7 +82,10 @@ export default class SortableTableHeader extends Component {
           sorting={sorting}
           onClick={this.onClick.bind(this)}
           style={column.headerStyle}
-          iconStyle={this.props.iconStyle} />
+          iconStyle={this.props.iconStyle}
+          iconDesc={this.props.iconDesc}
+          iconAsc={this.props.iconAsc}
+          iconBoth={this.props.iconBoth} />
       );
     }).bind(this));
 

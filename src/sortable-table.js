@@ -7,7 +7,10 @@ export default class SortableTable extends Component {
     data: PropTypes.array.isRequired,
     columns: PropTypes.array.isRequired,
     style: PropTypes.object,
-    iconStyle: PropTypes.object
+    iconStyle: PropTypes.object,
+    iconDesc: PropTypes.node,
+    iconAsc: PropTypes.node,
+    iconBoth: PropTypes.node
   }
 
   constructor(props) {
@@ -146,7 +149,10 @@ export default class SortableTable extends Component {
           columns={this.props.columns}
           sortings={this.state.sortings}
           onStateChange={this.onStateChange.bind(this)}
-          iconStyle={this.props.iconStyle} />
+          iconStyle={this.props.iconStyle}
+          iconDesc={this.props.iconDesc}
+          iconAsc={this.props.iconAsc}
+          iconBoth={this.props.iconBoth} />
         <SortableTableBody
           columns={this.props.columns}
           data={sortedData}
