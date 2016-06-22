@@ -14,7 +14,7 @@ Please activate Font Awesome. [Get started with Font Awesome](http://fortawesome
 
 # Example
 
-https://gh-pages.rudolph-miller.com/react-sortable-table/
+https://rudolph-miller.github.io/react-sortable-table
 - ID: default sorting
 - NAME: custom sorting function that sort names by the family name
 - CLASS: unsortable
