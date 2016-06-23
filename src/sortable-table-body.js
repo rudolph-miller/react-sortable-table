@@ -4,6 +4,9 @@ class SortableTableRow extends Component {
   render() {
     var tds = this.props.columns.map(function (item, index) {
       var value = this.props.data[item.key];
+      if ( item.render ) {
+        value = item.render(value)
+      }
       return (
         <td key={index} style={item.dataStyle}>{value}</td>
       );

@@ -85,7 +85,8 @@ class App extends Component {
         key: "id",
         defaultSorting: "ASC",
         headerStyle: { fontSize: "15px", backgroundColor: "#FFDAB9", width: "100px" },
-        dataStyle: { fontSize: "15px", backgroundColor: "#FFDAB9"}
+        dataStyle: { fontSize: "15px", backgroundColor: "#FFDAB9"},
+        render: function (id) { return ( <a href={"user/"+id}>{id}</a> ); }
       },
       {
         header: "NAME",
