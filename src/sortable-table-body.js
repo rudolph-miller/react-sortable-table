@@ -8,7 +8,12 @@ class SortableTableRow extends Component {
         value = item.render(value)
       }
       return (
-        <td key={index} style={item.dataStyle}>{value}</td>
+        <td
+          key={index}
+          style={item.dataStyle}
+          {...(item.dataProps || {})} >
+          {value}
+        </td>
       );
     }.bind(this));
 

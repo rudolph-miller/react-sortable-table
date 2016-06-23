@@ -4,7 +4,7 @@ import React, { Component, PropTypes } from 'react';
 import SortableTable from 'react-sortable-table';
 
 function getFamilyName(name) {
-  return name.split(" ").slice(-1)[0]
+  return name.split(' ').slice(-1)[0]
 }
 
 const FamilyNameSorter = {
@@ -40,10 +40,10 @@ class App extends Component {
     super()
     this.state = {
       data: [
-        { id: 3, name: "Satoshi Yamamoto", class: "B" },
-        { id: 1, name: "Taro Tanak", class: "A" },
-        { id: 2, name: "Ken Asada", class: "A" },
-        { id: 4, name: "Masaru Tokunaga", class: "C" }
+        { id: 3, name: 'Satoshi Yamamoto', class: 'B' },
+        { id: 1, name: 'Taro Tanak', class: 'A' },
+        { id: 2, name: 'Ken Asada', class: 'A' },
+        { id: 4, name: 'Masaru Tokunaga', class: 'C' }
       ]
     };
   }
@@ -51,37 +51,39 @@ class App extends Component {
   render() {
     const columns = [
       {
-        header: "ID",
-        key: "id",
-        defaultSorting: "ASC",
-        headerStyle: { fontSize: "15px", backgroundColor: "#FFDAB9", width: "100px" },
-        dataStyle: { fontSize: "15px", backgroundColor: "#FFDAB9"},
-        render: (id) => { return <a href={"user/"+id}>{id}</a>; }
+        header: 'ID',
+        key: 'id',
+        defaultSorting: 'ASC',
+        headerStyle: { fontSize: '15px', backgroundColor: '#FFDAB9', width: '100px' },
+        dataStyle: { fontSize: '15px', backgroundColor: '#FFDAB9'},
+        dataProps: { className: 'align-right' },
+        render: (id) => { return <a href={'user/'+id}>{id}</a>; }
 
       },
       {
-        header: "NAME",
-        key: "name",
-        headerStyle: { fontSize: "15px" },
+        header: 'NAME',
+        key: 'name',
+        headerStyle: { fontSize: '15px' },
+        headerProps: { className: 'align-left' },
         descSortFunction: FamilyNameSorter.desc,
         ascSortFunction: FamilyNameSorter.asc
       },
       {
-        header: "CLASS",
-        key: "class",
-        headerStyle: { fontSize: "15px" },
+        header: 'CLASS',
+        key: 'class',
+        headerStyle: { fontSize: '15px' },
         sortable: false
       }
     ];
 
     const style = {
-      backgroundColor: "#eee"
+      backgroundColor: '#eee'
     };
 
     const iconStyle = {
-      color: "#aaa",
-      paddingLeft: "5px",
-      paddingRight: "5px"
+      color: '#aaa',
+      paddingLeft: '5px',
+      paddingRight: '5px'
     };
 
     return (

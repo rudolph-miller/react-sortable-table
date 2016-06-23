@@ -4,6 +4,7 @@ import { SortIconBoth, SortIconDesc, SortIconAsc } from './icons';
 
 class SortableTableHeaderItem extends Component {
   static propTypes = {
+    headerProps: PropTypes.object,
     sortable: PropTypes.bool,
     sorting: PropTypes.oneOf(['desc', 'asc', 'both']),
     iconStyle: PropTypes.object,
@@ -13,6 +14,7 @@ class SortableTableHeaderItem extends Component {
   }
 
   static defaultProps = {
+    headerProps: {},
     sortable: true
   }
 
@@ -47,7 +49,8 @@ class SortableTableHeaderItem extends Component {
     return (
       <th
         style={this.props.style}
-        onClick={this.onClick.bind(this)} >
+        onClick={this.onClick.bind(this)}
+        {...this.props.headerProps} >
         {this.props.header}
         {sortIcon}
       </th>
@@ -82,6 +85,7 @@ export default class SortableTableHeader extends Component {
           sorting={sorting}
           onClick={this.onClick.bind(this)}
           style={column.headerStyle}
+          headerProps={column.headerProps}
           iconStyle={this.props.iconStyle}
           iconDesc={this.props.iconDesc}
           iconAsc={this.props.iconAsc}
