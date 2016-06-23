@@ -16,6 +16,7 @@ Please activate Font Awesome. [Get started with Font Awesome](http://fortawesome
 
 https://rudolph-miller.github.io/react-sortable-table
 - ID: default sorting
+    - rendered as `<a>` tag.
 - NAME: custom sorting function that sort names by the family name
 - CLASS: unsortable
 
@@ -86,7 +87,7 @@ class App extends Component {
         defaultSorting: "ASC",
         headerStyle: { fontSize: "15px", backgroundColor: "#FFDAB9", width: "100px" },
         dataStyle: { fontSize: "15px", backgroundColor: "#FFDAB9"},
-        render: function (id) { return ( <a href={"user/"+id}>{id}</a> ); }
+        render: (id) => { return <a href={"user/"+id}>{id}</a>; }
       },
       {
         header: "NAME",
