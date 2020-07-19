@@ -7,6 +7,9 @@ class SortableTableRow extends Component {
       if ( item.render ) {
         value = item.render(value)
       }
+      if ( item.renderWithData ) {
+        value = item.renderWithData(this.props.data)
+      }
       return (
         <td
           key={index}
